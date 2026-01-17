@@ -125,8 +125,7 @@ proxy-groups:
 
 # 规则匹配
 rules:
-  - RULE-SET,ads,REJECT  # 廣告規則必須放在最上方
-  # 应用上面定义的 'reject' 规则集，动作为 REJECT (拒绝连接)
+  - RULE-SET,ads,REJECT
   - RULE-SET,reject,REJECT
   - RULE-SET,private_ip,直连,no-resolve
   - RULE-SET,private_domain,直连

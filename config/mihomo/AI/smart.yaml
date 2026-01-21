@@ -188,7 +188,6 @@ rule-providers:
   netflix_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"}
   apple_ip: { <<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs"}
   ads: { <<: *domain, url: "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockmihomo.mrs"}
-  reject: { <<: *domain, url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"}
   emby_domain:
     type: inline    # 使用内联模式，直接写入下方内容
     behavior: domain
@@ -196,4 +195,12 @@ rule-providers:
       - easyemby.com         # 主域名 (通常匹配所有子域名)
       - video.easyemby.com   # 您的特定线路
       - jp01.easyemby.com    # 您的特定线路
+  reject:
+    type: http
+    behavior: domain
+    # 这是一个非常经典的去广告列表，包含 global 和国内常见的广告域名
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    path: ./ruleset/reject.yaml
+    interval: 86400 # 86400秒 = 24小时更新一次
+
 
